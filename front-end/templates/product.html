@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Virtusa</title>
+ 
+ 
+    <!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel='stylesheet'>
+    
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+ 
+ 
+</head>
+ 
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><span class="font-weight-bold ">Virtusa</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
+      </li>
+      
+    </ul>
+   
+   
+        <div class="my-2 my-lg-0">
+          <span class="my-2 my-sm-0 navbar-brand">{{ session['username'] }}</span>  
+        </div>
+  
+  </div>
+</nav>
+   
+    <div class="container"  >
+  <div class="row">
+    <div class="col">
+
+      <h1 style="text-align: center;">Upload Images</h1>
+      <hr>
+
+      <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Person</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="img_person" id="image">
+            <label class="custom-file-label" for="image">Select image...</label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Article</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="img_article" id="image">
+            <label class="custom-file-label" for="image">Select image...</label>
+          </div>
+        </div>
+    
+        <div class = "d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary ">Upload</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<footer class="bg-light pb-5" style="margin-top: 400px;">
+  <div class="container text-center ">
+    <p class="font-italic text-muted mb-0">&copy; Copyrights Virtusa All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+
