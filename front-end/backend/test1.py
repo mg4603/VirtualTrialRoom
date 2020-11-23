@@ -16,7 +16,7 @@ class test1:
     def __init__(self):
         pass
 
-    def get_opt_gmm():
+    def get_opt_gmm(self):
         parser = argparse.ArgumentParser()
 
         parser.add_argument("--name", default="GMM")
@@ -59,7 +59,7 @@ class test1:
         return opt
 
 
-    def get_opt_tom():
+    def get_opt_tom(self):
         parser = argparse.ArgumentParser()
 
         parser.add_argument("--name", default="TOM")
@@ -101,7 +101,7 @@ class test1:
         opt = parser.parse_args()
         return opt
 
-    def test_gmm(opt, test_loader, model, board):
+    def test_gmm(self, opt, test_loader, model, board):
         model.cuda()
         model.eval()
 
@@ -166,7 +166,7 @@ class test1:
                 print('step: %8d, time: %.3f' % (step+1, t), flush=True)
 
 
-    def test_tom(opt, test_loader, model, board):
+    def test_tom(self, opt, test_loader, model, board):
         model.cuda()
         model.eval()
 
@@ -232,8 +232,8 @@ class test1:
                 print('step: %8d, time: %.3f' % (step+1, t), flush=True)
 
 
-    def main_gmm():
-        opt = get_opt_gmm()
+    def main_gmm(self):
+        opt = self.get_opt_gmm()
         print(opt)
         print("Start to test stage: %s, named: %s!" % (opt.stage, opt.name))
 
@@ -258,8 +258,8 @@ class test1:
 
 
 
-    def main_tom():
-        opt = get_opt_tom()
+    def main_tom(self):
+        opt = self.get_opt_tom()
         print(opt)
         print("Start to test stage: %s, named: %s!" % (opt.stage, opt.name))
 
