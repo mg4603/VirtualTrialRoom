@@ -13,7 +13,7 @@ from tensorboardX import SummaryWriter
 from visualization import board_add_image, board_add_images, save_images
 
 class test1:
-    def __init__(self, ):
+    def __init__(self):
 
     def get_opt_gmm():
         parser = argparse.ArgumentParser()
