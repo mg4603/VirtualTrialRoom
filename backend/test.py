@@ -43,7 +43,7 @@ def get_opt_gmm():
                         default='tensorboard', help='save tensorboard infos')
 
     parser.add_argument('--result_dir', type=str,
-                        default='result', help='save result infos')
+                        default='data', help='save result infos')
 
     parser.add_argument('--checkpoint', type=str, default='checkpoints/GMM/gmm_final.pth', help='model checkpoint for test')
     # parser.add_argument('--checkpoint', type=str, default='checkpoints/TOM/tom_final.pth', help='model checkpoint for test')
@@ -88,7 +88,7 @@ def get_opt_tom():
     parser.add_argument('--result_dir', type=str,
                         default='result', help='save result infos')
 
-    parser.add_argument('--checkpoint', type=str, default='checkpoints/TOM/gtom_final.pth', help='model checkpoint for test')
+    parser.add_argument('--checkpoint', type=str, default='checkpoints/TOM/tom_final.pth', help='model checkpoint for test')
     # parser.add_argument('--checkpoint', type=str, default='checkpoints/TOM/tom_final.pth', help='model checkpoint for test')
 
     parser.add_argument("--display_count", type=int, default=1)

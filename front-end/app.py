@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 import numpy
 import bcrypt
 import cv2
-
+import '../backend/test'
 
 #intitalize flask app
 app = Flask(__name__, static_url_path='/static')
@@ -70,6 +70,8 @@ def product():
 
 @app.route('/soln')
 def solution():
+	main_gmm()
+	main_tom()
     return render_template('solution.html')
 
 @app.route('/signin', methods = ['POST'])
