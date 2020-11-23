@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, session, redirect, flash
 from flask_pymongo import PyMongo
+
 import bcrypt
 
 
@@ -15,14 +16,16 @@ app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 mongo = PyMongo(app)
 
     
-
-
+logged_in = False
 
 @app.route('/')
 def index():
-    if session['username']:
+    if logged_in:
         return redirect( url_for('product'))
     return render_template('index.html')
+"""    if session['logged_in']:
+        return redirect( url_for('product'))"""
+    
 
 @app.route('/about')
 def aboutUs():
@@ -52,6 +55,7 @@ def signIn():
         if login_user:
             if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = login_user['username']
+                logged_in = True
                 return redirect(url_for('product'))
         else:
             
@@ -67,7 +71,7 @@ def signIn():
 
 @app.route('/signup', methods = ['POST', 'GET'])
 def signUp():
-    if session['username']:
+    if logged_in:
         return redirect( url_for('product'))
     if request.method == 'POST':
         users = mongo.db.users
