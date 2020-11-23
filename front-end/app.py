@@ -3,7 +3,11 @@ from flask_pymongo import PyMongo
 import numpy
 import bcrypt
 import cv2
-import '../backend/test'
+import os
+import sys
+os.chdir('./')
+sys.path.append("../backend")
+import test
 
 #intitalize flask app
 app = Flask(__name__, static_url_path='/static')
@@ -13,8 +17,8 @@ app = Flask(__name__, static_url_path='/static')
 app.config['MONGO_DBNAME'] = 'Users'
 app.config['MONGO_URI'] = 'mongodb+srv://admin:admin@cluster0.1f9yj.mongodb.net/Users?retryWrites=true&w=majority'
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
-app.config['img_dir_img'] = '../backend/data/test/image'
-app.config['img_dir_cloth'] = '../backend/data/test/cloth'
+app.config['img_dir_img'] = './backend/data/test/image'
+app.config['img_dir_cloth'] = './backend/data/test/cloth'
 mongo = PyMongo(app)
 
     
@@ -72,7 +76,7 @@ def product():
 def solution():
 	main_gmm()
 	main_tom()
-    return render_template('solution.html')
+	return render_template('solution.html')
 
 @app.route('/signin', methods = ['POST'])
 def signIn():
