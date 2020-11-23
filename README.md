@@ -1,6 +1,6 @@
 # VirtualTrialRoom
 
- pip install -r requirements.txt
+ pip install -r front-end/requirements.txt
  
  python front-end/app.py
  
