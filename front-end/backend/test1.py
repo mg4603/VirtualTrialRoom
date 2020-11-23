@@ -6,14 +6,15 @@ import torch.nn.functional as F
 import argparse
 import os
 import time
-from cp_dataset import CPDataset, CPDataLoader
-from networks import GMM, UnetGenerator, load_checkpoint
+from .cp_dataset import CPDataset, CPDataLoader
+from .networks import GMM, UnetGenerator, load_checkpoint
 
 from tensorboardX import SummaryWriter
-from visualization import board_add_image, board_add_images, save_images
+from .visualization import board_add_image, board_add_images, save_images
 
 class test1:
     def __init__(self):
+        pass
 
     def get_opt_gmm():
         parser = argparse.ArgumentParser()
