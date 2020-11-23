@@ -5,9 +5,8 @@ import bcrypt
 import cv2
 import os
 import sys
-os.chdir('./')
-sys.path.append("../backend")
-import test
+
+import backend.test1 as test1
 
 #intitalize flask app
 app = Flask(__name__, static_url_path='/static')
@@ -74,8 +73,8 @@ def product():
 
 @app.route('/soln')
 def solution():
-	main_gmm()
-	main_tom()
+	test1.main_gmm()
+	test1.main_tom()
 	return render_template('solution.html')
 
 @app.route('/signin', methods = ['POST'])
