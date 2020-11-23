@@ -6,7 +6,7 @@ import cv2
 import os
 import sys
 
-import backend.test1 as test1
+from bakcend.test1 import test1
 
 #intitalize flask app
 app = Flask(__name__, static_url_path='/static')
