@@ -10,7 +10,7 @@ app = Flask(__name__, static_url_path='/static')
 
 
 app.config['MONGO_DBNAME'] = 'Users'
-app.config['MONGO_URI'] = 'mongodb+srv://admin:admin@cluster0.1f9yj.mongodb.net/Users?retryWrites=true&w=majority'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:<password>@cluster0.1f9yj.mongodb.net/Users?retryWrites=true&w=majority'
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 
 mongo = PyMongo(app)
