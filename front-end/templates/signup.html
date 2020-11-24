@@ -18,7 +18,7 @@
     <link href="signin.css" rel="stylesheet">
   </head>
 
-  <body class="text-center" >
+  <body class="text-center" style="background-image: url('static/background.jpeg');" >
       <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
   <a class="navbar-brand" href="/"><span class="font-weight-bold ">Virtusa</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
     <div class="card mx-auto p-4" style="margin-top:75px; border-radius: 3%; width: 30%;">
     
     <form class="form-signin" method=POST action="{{ url_for('signUp') }}">
-      <img class="mb-4" src="#" alt="" width="72" height="72">
+      <img class="mb-4" src="/static/logo.jpeg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
       <div class="p-1">
       <label for="inputName" class="sr-only">Name</label>
