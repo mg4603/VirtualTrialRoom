@@ -18,7 +18,7 @@
     <link href="signin.css" rel="stylesheet">
   </head>
 
-  <body class="text-center" style="background-image: url('static/background.jpeg');" >
+  <body class="text-center" style="background-image: url({{ url_for ('static', filename = 'background.jpeg') }});" >
       <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
   <a class="navbar-brand" href="/"><span class="font-weight-bold ">Virtusa</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -6,7 +6,7 @@ import cv2
 import os
 import sys
 
-from backend.test1 import test1
+#from backend.test1 import test1
 
 #intitalize flask app
 app = Flask(__name__, static_url_path='/static')
@@ -73,8 +73,10 @@ def product():
 
 @app.route('/soln')
 def solution():
-	test1.main_gmm()
-	test1.main_tom()
+	test = test1()
+
+	test.main_gmm()
+	test.main_tom()
 	return render_template('solution.html')
 
 @app.route('/signin', methods = ['POST'])
