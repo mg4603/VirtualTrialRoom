@@ -34,7 +34,7 @@ class CPDataset(data.Dataset):
         # load data list
         im_names = []
         c_names = []
-        with open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app/backend\data\test_pairs.txt', 'r') as f:
+        with open(r'Path\to\data\test_pairs.txt', 'r') as f:
             for line in f.readlines():
                 im_name, c_name = line.strip().split()
                 im_names.append(im_name)
@@ -52,13 +52,13 @@ class CPDataset(data.Dataset):
         if self.stage == 'GMM':
             #c = Image.open(osp.join(self.data_path, 'cloth', c_name))
             #cm = Image.open(osp.join(self.data_path, 'cloth-mask', c_name)).convert('L')
-            c = Image.open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\cloth\0_1.jpg')
-            cm = Image.open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\cloth-mask\0_1.jpg').convert('L')
+            c = Image.open(r'Path\to\data\test\cloth\0_1.jpg')
+            cm = Image.open(r'Path\to\data\test\cloth-mask\0_1.jpg').convert('L')
         else:
             #c = Image.open(osp.join(self.data_path, 'warp-cloth', im_name))    # c_name, if that is used when saved
             #cm = Image.open(osp.join(self.data_path, 'warp-mask', im_name)).convert('L')    # c_name, if that is used when saved
-            c = Image.open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\warp-cloth\0_0.jpg')    # c_name, if that is used when saved
-            cm = Image.open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\warp-mask\0_0.jpg').convert('L')    # c_name, if that is used when saved
+            c = Image.open(r'Path\to\data\test\warp-cloth\0_0.jpg')    # c_name, if that is used when saved
+            cm = Image.open(r'Path\to\data\test\warp-mask\0_0.jpg').convert('L')    # c_name, if that is used when saved
         c = self.transform(c)  # [-1,1]
         cm_array = np.array(cm)
         cm_array = (cm_array >= 128).astype(np.float32)
@@ -102,11 +102,11 @@ class CPDataset(data.Dataset):
         im_parse = Image.open(
             # osp.join(self.data_path, 'image-parse', parse_name)).convert('L')
             #osp.join(self.data_path, 'image-parse-new', parse_name)).convert('L')   # updated new segmentation
-		 r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\image-parse-new\0_0.png').convert('L')
+		 r'Path\to\data\test\image-parse-new\0_0.png').convert('L')
         parse_array = np.array(im_parse)
         im_mask = Image.open(
             #osp.join(self.data_path, 'image-mask', parse_name)).convert('L')
-        	r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\image-mask\0_0.png').convert('L')
+        	r'Path\to\data\test\image-mask\0_0.png').convert('L')
         mask_array = np.array(im_mask)
 
         # parse_shape = (parse_array > 0).astype(np.float32)  # CP-VTON body shape
@@ -154,7 +154,7 @@ class CPDataset(data.Dataset):
         # load pose points
         pose_name = im_name.replace('.jpg', '_keypoints.json')
         #with open(osp.join(self.data_path, 'pose', pose_name), 'r') as f:
-        with open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\data\test\pose\0_0_keypoints.json', 'r') as f:
+        with open(r'Path\to\data\test\pose\0_0_keypoints.json', 'r') as f:
             pose_label = json.load(f)
             pose_data = pose_label['people'][0]['pose_keypoints']
             pose_data = np.array(pose_data)
@@ -185,7 +185,7 @@ class CPDataset(data.Dataset):
         agnostic = torch.cat([shape, im_h, pose_map], 0)
 
         if self.stage == 'GMM':
-            im_g = Image.open(r'G:\capstone\VirtualTrialRoom\virtual-trial-room-app\backend\grid.png')
+            im_g = Image.open(r'Path\to\grid.png')
             im_g = self.transform(im_g)
         else:
             im_g = ''
